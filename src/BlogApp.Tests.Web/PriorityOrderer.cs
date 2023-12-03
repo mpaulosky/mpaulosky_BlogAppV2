@@ -1,6 +1,6 @@
 ﻿using Xunit.Sdk;
 
-namespace BlogApp.Tests.Web;
+namespace BlogApp;
 
 public class PriorityOrderer : ITestCaseOrderer
 {

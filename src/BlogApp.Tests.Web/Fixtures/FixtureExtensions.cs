@@ -6,7 +6,7 @@ using idunno.Authentication.Basic;
 
 using Microsoft.AspNetCore.Identity;
 
-namespace BlogApp.Tests.Web.Fixtures;
+namespace BlogApp.Fixtures;
 
 public static class FixtureExtensions
 {
@@ -27,13 +27,13 @@ public static class FixtureExtensions
 		logger ??= Microsoft.Extensions.Logging.Abstractions.NullLogger.Instance;
 		// The host should have shutdown here so we can delete the test database files
 		await Task.Delay(50);
-		var dbFiles = System.IO.Directory.GetFiles(".", $"BlogApp.{id:N}.db*");
+		var dbFiles = Directory.GetFiles(".", $"BlogApp.{id:N}.db*");
 		foreach (var dbFile in dbFiles)
 		{
 			try
 			{
 				logger.LogInformation("Removing test database file {File}", dbFile);
-				System.IO.File.Delete(dbFile);
+				File.Delete(dbFile);
 			}
 			catch (Exception e)
 			{
@@ -50,10 +50,10 @@ public static class FixtureExtensions
 	/// <returns>Returns the IHostBuilder to allow chaining</returns>
 	public static IHostBuilder AddTestConfiguration(this IHostBuilder builder, string? fileName = null, string jsonConfiguration = "{}")
 	{
-		var testDirectory = System.IO.Directory.GetCurrentDirectory();
+		var testDirectory = Directory.GetCurrentDirectory();
 		builder.ConfigureAppConfiguration(host =>
 		{
-			host.AddJsonFile(System.IO.Path.Combine(testDirectory, fileName ?? "appsettings.Test.json"), true);
+			host.AddJsonFile(Path.Combine(testDirectory, fileName ?? "appsettings.Test.json"), true);
 			var jsonStream = Encoding.UTF8.GetBytes(jsonConfiguration);
 			host.AddJsonStream(new MemoryStream(jsonStream));
 		});

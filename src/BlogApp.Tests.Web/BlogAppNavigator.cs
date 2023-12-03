@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Tests.Web;
+﻿namespace BlogApp;
 
 /// <summary>
 /// A collection of extension methods that navigate the application.
@@ -6,7 +6,7 @@
 public static class BlogAppNavigator
 {
 
-	public static async Task<IPage> GotoHashtagSearchPage(this IPage page)
+	public static async Task<IPage> GotoHomePage(this IPage page)
 	{
 
 		await page.GotoAsync("/");
@@ -15,33 +15,33 @@ public static class BlogAppNavigator
 
 	}
 
-	public static async Task<IPage> SearchForHashtag(this IPage page, string hashtag)
-	{
+	//public static async Task<IPage> SearchForHashtag(this IPage page, string hashtag)
+	//{
 
-		await page.GetByPlaceholder("New Hashtag").FillAsync(hashtag);
+	//	await page.GetByPlaceholder("New Hashtag").FillAsync(hashtag);
 
-		await page.GetByRole(AriaRole.Button, new() { Name = "Add" }).ClickAsync();
+	//	await page.GetByRole(AriaRole.Button, new() { Name = "Add" }).ClickAsync();
 
-		return page;
+	//	return page;
 
-	}
+	//}
 
-	public static async Task<IPage> GotoWaterfallPage(this IPage page)
-	{
+	//public static async Task<IPage> GotoWaterfallPage(this IPage page)
+	//{
 
-		if (page.Url != "/waterfall") await page.GotoAsync("/waterfall");
+	//	if (page.Url != "/waterfall") await page.GotoAsync("/waterfall");
 
-		return page;
+	//	return page;
 
-	}
+	//}
 
-	public static async Task<IPage> GotoOverlayPage(this IPage page)
-	{
+	//public static async Task<IPage> GotoOverlayPage(this IPage page)
+	//{
 
-		if (page.Url != "/overlay") await page.GotoAsync("/overlay");
+	//	if (page.Url != "/overlay") await page.GotoAsync("/overlay");
 
-		return page;
+	//	return page;
 
-	}
+	//}
 
 }

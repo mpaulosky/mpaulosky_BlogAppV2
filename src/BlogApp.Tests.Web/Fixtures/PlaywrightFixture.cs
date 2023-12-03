@@ -1,6 +1,6 @@
 ﻿using C3D.Extensions.Playwright.AspNetCore.Xunit;
 
-namespace BlogApp.Tests.Web.Fixtures;
+namespace BlogApp.Fixtures;
 
 /// <summary>
 /// WebApplicationFactory that wraps the TestHost in a Kestrel server and provides Playwright and HttpClient testing. 
@@ -27,7 +27,6 @@ public class PlaywrightFixture : PlaywrightFixture<AssemblyClassLocator>
 	{
 		//ServicesExtensions.SocialMediaProviders = new List<IConfigureProvider> { new StartStubSocialMediaProvider() };
 		builder.AddTestConfiguration(jsonConfiguration: CONFIGURATION);
-		builder.UseOnlyStubSocialMediaProvider();
 		builder.UseOnlyInMemoryService();
 		builder.UseUniqueDb(_Uniqueid);
 		builder.AddBasicAuthentication();

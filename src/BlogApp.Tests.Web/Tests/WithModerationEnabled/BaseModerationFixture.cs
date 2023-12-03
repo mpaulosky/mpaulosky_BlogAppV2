@@ -1,10 +1,12 @@
-﻿using BlogApp.Tests.Web.Fixtures;
+﻿using BlogApp.Fixtures;
 
-namespace BlogApp.Tests.Web.Tests.WithModerationEnabled;
+using C3D.Extensions.Playwright.AspNetCore.Xunit;
+
+namespace BlogApp.Tests.WithModerationEnabled;
 
 // This fixture creates a new web application, new browser, and a single page for the lifetime of the fixture
 // The fixture is in context for the duration of all the tests in a single class.
-public class BaseModerationFixture : PlaywrightPageFixture<Web.Program>
+public class BaseModerationFixture : PlaywrightPageFixture<AssemblyClassLocator>
 {
 	public BaseModerationFixture(IMessageSink output) : base(output)
 	{
@@ -20,7 +22,6 @@ public class BaseModerationFixture : PlaywrightPageFixture<Web.Program>
 	{
 
 		builder.AddTestConfiguration(jsonConfiguration: CONFIGURATION);
-		builder.UseOnlyStubSocialMediaProvider();
 		builder.UseOnlyInMemoryService();
 		builder.UseUniqueDb(_Uniqueid);
 		return base.CreateHost(builder);

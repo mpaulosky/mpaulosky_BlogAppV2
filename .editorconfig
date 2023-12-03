@@ -5,6 +5,14 @@ root = true
 indent_style = space
 end_of_line = lf
 insert_final_newline = false
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+dotnet_style_prefer_auto_properties = true:suggestion
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
+tab_width = 2
+indent_size = 2
+dotnet_style_object_initializer = true:suggestion
 
 # C# files
 [*.cs]
@@ -246,6 +254,10 @@ dotnet_naming_style.s_camelcase.required_prefix = s_
 dotnet_naming_style.s_camelcase.required_suffix =
 dotnet_naming_style.s_camelcase.word_separator =
 dotnet_naming_style.s_camelcase.capitalization = camel_case
+csharp_style_namespace_declarations = file_scoped:suggestion
+csharp_style_prefer_method_group_conversion = true:silent
+csharp_style_prefer_top_level_statements = true:silent
+csharp_style_prefer_primary_constructors = true:suggestion
 
 # Html
 [*.html]
