@@ -68,5 +68,8 @@ app.MapAdditionalIdentityEndpoints();
 
 app.Run();
 
-[ExcludeFromCodeCoverage]
-public class AssemblyClassLocator;
+namespace BlogApp
+{
+	[ExcludeFromCodeCoverage]
+	public class AssemblyClassLocator;
+}

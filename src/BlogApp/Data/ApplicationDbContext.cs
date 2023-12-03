@@ -4,6 +4,4 @@ using Microsoft.EntityFrameworkCore;
 namespace BlogApp.Data;
 
 public class ApplicationDbContext
-	(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<ApplicationUser>(options)
-{
-}
+	(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<ApplicationUser>(options);
